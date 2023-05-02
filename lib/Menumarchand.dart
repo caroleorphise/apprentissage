@@ -1,6 +1,8 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_switch/flutter_switch.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 class Menumarchand extends StatefulWidget {
@@ -10,7 +12,14 @@ class Menumarchand extends StatefulWidget {
 }
 
 class _MenumarchandState extends State<Menumarchand> {
+    bool val1 = false;
+    bool val2 = false;
 
+    void change1(bool s){
+      setState(() {
+        val1 = s;
+      });
+    }
   // Attitudes
   List <BottomNavigationBarItem> _item = [];
   int _id=0;
@@ -104,18 +113,37 @@ class _MenumarchandState extends State<Menumarchand> {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
+
                     //Navigator.pushReplacementNamed(context, "/connexion");
                     showDialog(
+
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                           content: LiteRollingSwitch(
+                            //exemple 1 dialogbos et ok seulement
+                            content: Text('Date'),
+
+                            // bouton on/off
+                            //shape: Switch(value: val1, onChanged: change1, activeColor: Colors.blue),
+                            //child: Switch(),
+
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text('OK'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+
+                            //exemple 2
+                           /*content: LiteRollingSwitch(
                             // child: Text ("Connexion"),
                              value: true,
                              colorOn:Colors.greenAccent,
                              colorOff: Colors.blue,
-                             iconOn: Icons.done,
-                             iconOff: Icons.add_box_rounded,
+                            // iconOn: Icons.done,
+                             //iconOff: Icons.add_box_rounded,
                              onChanged: (bool position){
                                print("The button is $position");
                              },
@@ -128,7 +156,7 @@ class _MenumarchandState extends State<Menumarchand> {
                              onSwipe: (){
                                // code
                              },
-                           ),
+                           ),*/
 
                           );
 
