@@ -118,7 +118,16 @@ class _MenumarchandState extends State<Menumarchand> {
                              iconOff: Icons.add_box_rounded,
                              onChanged: (bool position){
                                print("The button is $position");
-                             }, onTap: null,
+                             },
+                             onDoubleTap: (){
+                               // code
+                              },
+                             onTap: (){
+                               // code
+                             },
+                             onSwipe: (){
+                               // code
+                             },
                            ),
 
                           );
