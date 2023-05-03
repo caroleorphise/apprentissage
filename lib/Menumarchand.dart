@@ -2,6 +2,7 @@
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+//import 'package:custom_switch_button/custom_switch_button.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
@@ -12,9 +13,12 @@ class Menumarchand extends StatefulWidget {
 }
 
 class _MenumarchandState extends State<Menumarchand> {
-    bool val1 = false;
-    bool val2 = false;
+   bool val2 = false;
+    bool isChecked = false;
+    bool _switchValue = true;
+    bool isSwitched = false;
 
+    bool val1 = false;
     void change1(bool s){
       setState(() {
         val1 = s;
@@ -102,6 +106,13 @@ class _MenumarchandState extends State<Menumarchand> {
 
   // Contenu form
   Widget content(){
+    bool val1 = false;
+    void change1(bool s){
+      setState(() {
+        val1 = s;
+      });
+    }
+
     return Container(
       child: SingleChildScrollView(
         physics: AlwaysScrollableScrollPhysics(),
@@ -113,6 +124,9 @@ class _MenumarchandState extends State<Menumarchand> {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
+                    setState(() {
+                      isChecked = !isChecked;
+                    });
 
                     //Navigator.pushReplacementNamed(context, "/connexion");
                     showDialog(
@@ -120,10 +134,45 @@ class _MenumarchandState extends State<Menumarchand> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
+                            title: Text('Date :'),
                             //exemple 1 dialogbos et ok seulement
-                            content: Text('Date'),
+                            content: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Switch(value: val1, onChanged: change1, activeColor: Colors.blue,)
+                                ],
+                              ),
+                            ),
+                            //exemple 2
+                           /* child: LiteRollingSwitch(
+                              // child: Text ("Connexion"),
+                              value: true,
+                              colorOn:Colors.greenAccent,
+                              colorOff: Colors.blue,
+                              // iconOn: Icons.done,
+                              //iconOff: Icons.add_box_rounded,
+                              onChanged: (bool position){
+                                print("The button is $position");
+                              },
+                              onDoubleTap: (){
+                                // code
+                              },
+                              onTap: (){
+                                // code
+                              },
+                              onSwipe: (){
+                                // code
+                              },
+                            ),*/
 
-                            // bouton on/off
+                          /*  shape: CustomSwitchButton(
+                              backgroundColor: Colors.blueGrey,
+                              unCheckedColor: Colors.green,
+                              checkedColor: Colors.lightGreen,
+                              checked: isChecked,
+                            ),*/
+
                             //shape: Switch(value: val1, onChanged: change1, activeColor: Colors.blue),
                             //child: Switch(),
 
@@ -135,29 +184,6 @@ class _MenumarchandState extends State<Menumarchand> {
                                 },
                               ),
                             ],
-
-                            //exemple 2
-                           /*content: LiteRollingSwitch(
-                            // child: Text ("Connexion"),
-                             value: true,
-                             colorOn:Colors.greenAccent,
-                             colorOff: Colors.blue,
-                            // iconOn: Icons.done,
-                             //iconOff: Icons.add_box_rounded,
-                             onChanged: (bool position){
-                               print("The button is $position");
-                             },
-                             onDoubleTap: (){
-                               // code
-                              },
-                             onTap: (){
-                               // code
-                             },
-                             onSwipe: (){
-                               // code
-                             },
-                           ),*/
-
                           );
 
                         });
@@ -201,7 +227,9 @@ class _MenumarchandState extends State<Menumarchand> {
                           ),
                         ),
                         builder: ((context) {
-                           return Container();
+                           return Container(
+                           );
+
                     }));
           },
                   child: Image.asset('assets/assurancemenu.png'),
@@ -310,4 +338,8 @@ class _MenumarchandState extends State<Menumarchand> {
     );
 
   }
+
+  CustomSwitchButton({required MaterialColor backgroundColor, required Color unCheckedColor, required MaterialColor checkedColor, required bool checked}) {}
+
+  CupertinoSwitch({required value, required Null Function(dynamic value) onChanged}) {}
 }
