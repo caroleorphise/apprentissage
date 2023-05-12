@@ -76,18 +76,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
 
 
-
-
-          /* TextButton(
-            style: TextButton.styleFrom(
-
-              padding: const EdgeInsets.all(5),
-              textStyle: const TextStyle(fontSize: 20),
-            ),
-            onPressed: () {},
-            child: const Text('S\'inscrire'),
-          ),*/
-
         ],
       ),
     );

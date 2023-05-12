@@ -6,7 +6,11 @@ import 'package:apprentissage/Motdepasseoublie.dart';
 import 'package:apprentissage/Mdpotp.dart';
 import 'package:apprentissage/Mdpnouv.dart';
 import 'package:apprentissage/Menumarchand.dart';
-import 'package:apprentissage/Voyagehistorique.dart';
+import 'package:apprentissage/Voyageencours.dart';
+import 'package:apprentissage/Vcchargement.dart';
+import 'package:apprentissage/Vcdepart.dart';
+import 'package:apprentissage/Vcarrive.dart';
+import 'package:apprentissage/Profilmodifier.dart';
 import 'SplashScreen.dart';
 
 void main() => runApp(
@@ -30,7 +34,12 @@ class MyApp extends StatelessWidget {
             '/mdpotp': (BuildContext context) => new Mdpotp(),
             '/mdpnouv': (BuildContext context) => new Mdpnouv(),
             '/menumarchand': (BuildContext context) => new Menumarchand(),
-            '/voyagehistorique': (BuildContext context) => new Voyagehistorique(),
+            '/voyageencours': (BuildContext context) => new Voyageencours(),
+            '/vcchargement': (BuildContext context) => new Vcchargement(),
+            '/vcdepart': (BuildContext context) => new Vcdepart(),
+            '/vcarrive': (BuildContext context) => new Vcarrive(),
+            '/profilmodifier': (BuildContext context) => new Profilmodifier(),
+
           },
           home: SplashScreen(),
       ),
